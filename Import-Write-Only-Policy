@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowBucketRead",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::<bucket-name>"
+            ]
+        },
+        {
+            "Sid": "AllowS3Put",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectACL"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<bucket-name>/*"
+            ]
+        }
+    ]
+}

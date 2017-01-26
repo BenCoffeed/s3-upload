@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Secure Upload Portal</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <form action="https://s3-us-west-2.amazonaws.com/<bucket-name>" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="key" value="uploads/${filename}">
+      Access Key ID
+      <input type="input" name="AWSAccessKeyId" value=""></br>
+      <input type="hidden" name="acl" value="private">
+      <input type="hidden" name="success_action_redirect" value="<success redirect URL>">
+      <input type="hidden" name="x-amz-server-side-encryption" value="AES256" />
+      <input type="hidden" name="policy" value="<Base64-Policy>"
+      Signature
+      <input type="password" name="signature" placeholder="************************"></br>
+      <!-- Include any additional input fields here -->
+
+      File to import:
+      <input name="file" type="file">
+      <br>
+      NOTE: File must be .csv format. </br>
+      <input type="submit" value="Upload File to S3">
+    </form>
+  </body>
+</html>
